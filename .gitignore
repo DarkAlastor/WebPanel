@@ -1,2 +1,6 @@
 .idea
 .env
+logs
+**/__pycache__/
+**/*.db
+allure-results
