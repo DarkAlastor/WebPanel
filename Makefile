@@ -12,7 +12,7 @@ install:
 # ________________БЛОК КОМАНД ДЛЯ ЗАПУСКА ЛИНТЕРОВ________________
 .PHONY: formater
 formater:
-	$(PYTHON) -m black .
+	$(PYTHON) -m black --line-length=120 .
 	$(PYTHON) -m isort .
 
 # Запуск линтеров
@@ -42,3 +42,13 @@ docs:
 .PHONY: start-docs
 start-docs:
 	$(PYTHON) -m http.server 8000 --directory docs/_build/html
+
+
+# ________________БЛОК КОМАНД ДЛЯ ТЕСТОВ________________
+.PHONY: test-all
+test-all:
+	$(RUN) pytest -v --tb=long --capture=no src/tests/
+
+.PHONY: test-unit
+test-unit:
+	$(RUN) pytest -v --tb=long --capture=no src/tests/unit/
