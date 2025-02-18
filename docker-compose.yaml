@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: web_panel_user
+      POSTGRES_PASSWORD: web_panel_password
+      POSTGRES_DB: web_panel_db
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    depends_on:
+      - postgres
