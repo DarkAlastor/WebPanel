@@ -1,0 +1,86 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  detailed:
+    format: '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  user_action:
+    format: '%(asctime)s - %(username)s - %(role)s - %(action)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: standard
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: detailed
+    filename: logs/app.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf8
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: logs/error.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf8
+  user_action_file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: user_action
+    filename: logs/user_actions.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf8
+  db_error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: logs/db_error.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf8
+  db_profiler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: detailed
+    filename: logs/db_profiler.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf8
+
+
+loggers:
+  app_logger:
+    level: DEBUG
+    handlers: ['console', 'file', 'error_file']
+    propagate: false
+  app_user_actions_logger:
+    level: INFO
+    handlers: ['user_action_file']
+    formatter: 'user_action'
+    propagate: false
+  app_db_logger:
+    level: DEBUG
+    handlers: ['console', 'db_error_file']
+    formatter: 'detailed'
+    propagate: false
+  app_db_profiler_logger:
+    level: DEBUG
+    handlers: ['console', 'db_profiler']
+    formatter: 'detailed'
+    propagate: false
+
+root:
+  level: DEBUG
+  handlers: ['console', 'file', 'error_file']

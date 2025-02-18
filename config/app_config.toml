@@ -1,0 +1,116 @@
+[flask-config]
+# ================== Настройки конфигурации хоста для Flask ==================
+# Список доверенных хостов.
+#TRUSTED_HOSTS=[]
+# Имя сервера для Flask.
+#SERVER_NAME=""
+# Корневой путь приложения.
+APPLICATION_ROOT="/"
+# Предпочтительная схема URL (http или https).
+PREFERRED_URL_SCHEME="http"
+# путь для статических файлов, который будет использоваться для ссылки на статические ресурсы.
+STATIC_URL = "/static"
+# указывает, должны ли ключи JSON-ответов быть отсортированы.
+JSON_SORT_KEYS = true
+
+# ================== Настройки шаблонов и авто опций хоста для Flask ==================
+# Автоматическая перезагрузка шаблонов при изменении.
+TEMPLATES_AUTO_RELOAD=true
+# Объяснение загрузки шаблонов (по умолчанию False).
+EXPLAIN_TEMPLATE_LOADING=false
+# Автоматическое предоставление опций для RESTful методов.
+PROVIDE_AUTOMATIC_OPTIONS=true
+
+# ================== Настройки ограничений на контент и формы для Flask ==================
+# Максимальный размер контента (ограничение на тело запроса).
+#MAX_CONTENT_LENGTH="null"
+# Максимальный размер памяти для формы (по умолчанию 500 KB).
+MAX_FORM_MEMORY_SIZE=500000
+# Максимальное количество частей формы (по умолчанию 1000).
+MAX_FORM_PARTS=1000
+
+# ================== Настройки перехвата ошибок для Flask ==================
+# Перехват ошибок, отключен по умолчанию.
+PROPAGATE_EXCEPTIONS=false
+# Перехват HTTP ошибок. По умолчанию отключено.
+TRAP_HTTP_EXCEPTIONS=false
+# Перехват ошибок Bad Request. По умолчанию отключено.
+TRAP_BAD_REQUEST_ERRORS=false
+# Время жизни сессии в секундах (по умолчанию 24 часа).
+
+# ================== Настройки файлы и кэш для Flask ==================
+# Использование X-Sendfile. Отключено по умолчанию.
+USE_X_SENDFILE=false
+# Максимальный возраст файлов для кэширования.
+#SEND_FILE_MAX_AGE_DEFAULT="null"
+
+# ================== Настройки cookie и сессий для Flask ==================
+# Имя cookie сессии.
+SESSION_COOKIE_NAME='session'
+# Домен cookie сессии. Если None, то используется текущий домен.
+#SESSION_COOKIE_DOMAIN=""
+# Путь для cookie сессии.
+#SESSION_COOKIE_PATH=""
+# Сессионные cookie только для HTTP.
+SESSION_COOKIE_HTTPONLY=true
+# Использование secure cookies. Обычно False в разработке.
+SESSION_COOKIE_SECURE=false
+# Разделение cookie для разных контекстов. По умолчанию False.
+SESSION_COOKIE_PARTITIONED=false
+# Стратегия SameSite для cookie (None, Strict, Lax).
+#SESSION_COOKIE_SAMESITE=""
+# Максимальный размер cookie (в байтах).
+MAX_COOKIE_SIZE=4093
+# Установить сессию как перманентную или временную.
+SESSION_PERMANENT=true
+# Время жизни сессии в секундах (по умолчанию 24 часа).
+PERMANENT_SESSION_LIFETIME=86400
+# Обновление сессии на каждом запросе.
+SESSION_REFRESH_EACH_REQUEST=false
+# Префикс для ключа сессии.
+SESSION_KEY_PREFIX='web_panel_session:'
+# Тип сессии (например, redis, filesystem, sqlalchemy).
+SESSION_TYPE='redis'
+# Использовать ли подписку для сессионных данных (для дополнительной безопасности).
+SESSION_USE_SIGNER=true
+# Максимальный размер кэшируемых данных для сессий.
+SESSION_CACHE_SIZE=100
+# Время ожидания для проверки активных сессий в пуле (в секундах).
+SESSION_POOL_TIMEOUT=30
+
+# ================== Настройки базы данных SQLALCHEMY для Flask ==================
+# Отключает отслеживание изменений в базе данных для объектов SQLAlchemy.
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+# Включает вывод всех SQL-запросов, генерируемых SQLAlchemy, в лог.
+SQLALCHEMY_ECHO = false
+# Включает запись статистики выполнения запросов SQLAlchemy.
+SQLALCHEMY_RECORD_QUERIES = false
+# Максимальное количество соединений, которые могут быть созданы сверх установленного лимита в пуле соединений.
+SQLALCHEMY_MAX_OVERFLOW = 10
+# Размер пула соединений, который указывает, сколько соединений будет поддерживаться в пуле для повторного использования.
+SQLALCHEMY_POOL_SIZE = 5
+# Время жизни соединений в пуле (в секундах), после чего соединение будет закрыто и создано новое.
+SQLALCHEMY_POOL_RECYCLE = 3600  # 1 hour
+# Путь к настройкам иницализации начальных данных для базы данных.
+SQLALCHEMY_CONFIG_PATH_INIT = "./config/db_config/config.yaml"
+# Путь к настройкам query базы данных для postgresql.
+SQLALCHEMY_CONFIG_PATH_QUERIES_POSTGRESQL = "./config/db_config/queries_postgres.yaml"
+
+# ================== Настройки базы данных SWAGGER OPEN API для Flask (Flask-Smorest) ==================
+# Заголовок API документации, который будет отображаться в Swagger UI.
+API_TITLE = "WebSslPanel API Documentation"
+# Версия API. Это поможет отличать разные версии API в документации.
+API_VERSION = "0.0.1"
+# Версия OpenAPI, которая используется для генерации документации.
+OPENAPI_VERSION = "3.0.3"
+# Путь, по которому будет доступна спецификация OpenAPI в формате JSON.
+OPENAPI_URL_PREFIX = "/api-docs"
+# Путь, по которому доступна визуальная документация с помощью Swagger UI.
+OPENAPI_SWAGGER_UI_PATH = "/swagger-ui"
+# URL для загрузки Swagger UI. Это внешний URL для подключения к CDN-ресурсам Swagger UI
+OPENAPI_SWAGGER_UI_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
+
+[flask-config-logger]
+# === Базовые настройки для logger для приложения ===
+CONFIG_PATH_LOGGER_DEV = "config/logging_config_dev.yaml"
+CONFIG_PATH_LOGGER_PROD = "config/logging_config_prod.yaml"

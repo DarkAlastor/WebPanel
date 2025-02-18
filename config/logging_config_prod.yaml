@@ -1,0 +1,45 @@
+version: 1
+
+formatters:
+
+  detailed:
+    format: '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+  user_action:
+    format: '%(asctime)s - %(username)s - %(role)s - %(action)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+filters:
+  service_filter:
+    () : config.logger_filters.filters.ServiceFilter
+  users_filter:
+    () : config.logger_filters.filters.UserFilter
+
+handlers:
+
+  loki_handler:
+    class: 'logging_loki.LokiHandler'
+    level: 'DEBUG'
+    url: 'http://127.0.0.1:3100/loki/api/v1/push'
+    version: '1'
+    formatter: 'detailed'
+    filters: ['service_filter']
+
+loggers:
+
+  app_logger:
+    level: 'DEBUG'
+    handlers: ['loki_handler']
+    filters: ['service_filter']
+
+  app_user_actions_logger:
+    level: 'INFO'
+    handlers: ['loki_handler']
+    formatter: 'user_action'
+    filters: ['service_filter', 'users_filter']
+
+  app_db_logger:
+    level: 'INFO'
+    handlers: [ 'loki_handler' ]
+    filters: [ 'service_filter']
