@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      # Проверка линтеров
+      - id: make-lint
+        name: Make Lint
+        entry: make lint
+        language: system
+        types: [python]
+
+      # Проверка типов
+      - id: make-typecheck
+        name: Make Typecheck
+        entry: make typecheck
+        language: system
+        types: [python]
+
+      # Автоформатирование
+      - id: make-format
+        name: Make Formatter
+        entry: make formater
+        language: system
+        types: [python]
