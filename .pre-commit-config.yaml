@@ -21,3 +21,10 @@ repos:
         entry: make formater
         language: system
         types: [python]
+
+      # Запуск тестов (новый хук)
+      - id: run-tests
+        name: Run Tests
+        entry: make test-all
+        language: system
+        types: [ python ]
