@@ -2,6 +2,8 @@
 PYTHON := poetry run python
 POETRY := poetry
 RUN := poetry run
+FLASK_MIGRATE = src.app.core.migrate.py
+
 
 # Установка зависимостей
 .PHONY: install
@@ -52,3 +54,20 @@ test-all:
 .PHONY: test-unit
 test-unit:
 	$(RUN) pytest -v --tb=long --capture=no src/tests/unit/
+
+# ________________БЛОК КОМАНД ДЛЯ МИГРАЦИЙ________________
+.PHONY: db-init
+db-init:
+	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db init
+
+.PHONY: db-migrate
+db-migrate:
+	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db migrate -m "Auto migration"
+
+.PHONY: db-migrate-empty
+db-migrate-empty:
+	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db revision -m "Initial empty migration"
+
+.PHONY: db-upgrade
+db-upgrade:
+	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db upgrade
