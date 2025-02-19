@@ -1,0 +1,16 @@
+#k3s/k3d-cluster.yaml только для локального тестового использования
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: web-panel-cluster  # Название кластера
+servers: 1  # 1 мастер-нода
+agents: 2  # 2 worker-ноды
+ports:
+  - port: 80:80  # Проброс HTTP (Ingress Nginx)
+  - port: 443:443  # Проброс HTTPS (Ingress Nginx)
+options:
+  k3s:
+    extraArgs:
+      - arg: "--disable=traefik"  # Отключаем Traefik
+        nodeFilters:
+          - server:*

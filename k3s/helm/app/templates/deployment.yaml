@@ -1,0 +1,76 @@
+# app/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-web-panel
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-web-panel
+  template:
+    metadata:
+      labels:
+        app: flask-web-panel
+    spec:
+      containers:
+        - name: flask-web-panel
+          image: "{{ .Values.flaskApp.image }}:{{ .Values.flaskApp.tag }}"
+          imagePullPolicy: {{ .Values.flaskApp.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.flaskApp.servicePort }}
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "600Mi"
+            requests:
+              cpu: "250m"
+              memory: "128Mi"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          env:
+            # Flask Конфигурация из values.yaml
+            - name: PROJECT_ROOT
+              value: "{{ .Values.flaskApp.project_root }}"
+            - name: ALLURE_HOST
+              value: "{{ .Values.flaskApp.allure_host }}"
+            - name: PROJECT_ID
+              value: "{{ .Values.flaskApp.project_id }}"
+            - name: SEND_PATH
+              value: "{{ .Values.flaskApp.send_path }}"
+            - name: GENERATE_PATH
+              value: "{{ .Values.flaskApp.generate_path }}"
+            - name: FLASK_APP
+              value: "{{ .Values.flaskApp.flask_app }}"
+            - name: FLASK_STATUS_DEBUG
+              value: "{{ .Values.flaskApp.flask_status_debug }}"
+            - name: FLASK_STATUS_TESTING
+              value: "{{ .Values.flaskApp.flask_status_testing }}"
+            - name: FLASK_STATUS_PROD_STAGES
+              value: "{{ .Values.flaskApp.flask_status_prod_stages }}"
+            - name: FLASK_WTF_CSRF_ENABLED
+              value: "{{ .Values.flaskApp.flask_wtf_csrf_enabled }}"
+            - name: FLASK_CONFIG_PATH
+              value: "{{ .Values.flaskApp.flask_config_path }}"
+
+            # PostgreSQL Подключение
+            - name: FLASK_SQLALCHEMY_DATABASE_URI
+              value: "{{ .Values.flaskApp.database_uri }}"
+
+            # Redis Подключение
+            - name: FLASK_SESSION_REDIS_URI
+              value: "{{ .Values.flaskApp.redis_uri }}"
+
+            # Flask Секреты из values.yaml
+            - name: FLASK_SECRET_KEY_SESSION
+              value: "{{ .Values.flaskApp.flask_secret_key_session }}"
+            - name: FLASK_SECRET_KEY_FALLBACKS
+              value: "{{ .Values.flaskApp.flask_secret_key_fallbacks }}"

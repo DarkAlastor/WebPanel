@@ -1,0 +1,15 @@
+# redis/values.yaml
+redis:
+  storageSize: "1Gi" #  размер хранилища для базы данных (Persistent Volume)
+  image: "redis:7.0-alpine" # образ который будет использоваться
+  servicePort: 6379 # порт, на котором сервис PostgreSQL будет доступен
+  password: "None"
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 90
+
+rbac:
+  create: true
+  serviceAccountName: redis-sa

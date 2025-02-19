@@ -1,0 +1,13 @@
+# postgresql/templates/hpa.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim # создаем запрос на объем памяти.
+metadata:
+  name: postgresql-web-panel-primary-pvc # имя PVC
+  namespace: database # PVC будет в database namespace
+spec:
+  accessModes: # диск может использовать только один узел
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.postgresql.storageSize }}
+  storageClassName: {{ .Values.postgresql.storageClass }}

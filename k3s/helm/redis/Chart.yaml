@@ -1,0 +1,7 @@
+# redis/Chart.yaml.yaml
+apiVersion: v2
+name: redis-web-panel
+description: Helm-чарт для развертывания redis для web-panel
+type: application
+version: 0.1.0
+appVersion: "7.0"

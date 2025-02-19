@@ -1,0 +1,57 @@
+# postgresql/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-web-panel-primary
+  namespace: database
+spec:
+  selector:
+    matchLabels:
+      app: postgresql-web-panel
+      role: primary
+  template:
+    metadata:
+      labels:
+        app: postgresql-web-panel
+        role: primary
+    spec:
+      containers:
+        - name: postgresql
+          image: {{ .Values.postgresql.image }}
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-web-panel-secret
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-web-panel-secret
+                  key: password
+            - name: POSTGRES_DB
+              value: "{{ .Values.postgresql.database }}"  # Здесь добавлена переменная для базы данных
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresql-storage
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+      volumes:
+        - name: postgresql-storage
+          emptyDir: {}  # ✅ Отключаем PVC для реплик, чтобы не было конфликтов

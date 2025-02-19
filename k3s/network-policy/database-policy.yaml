@@ -1,0 +1,20 @@
+# k3s/network-policy/database-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: database-policy
+  namespace: database
+spec:
+  podSelector: {}  # Применяется ко всем Pod-ам в `database`
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: app  # Только `app` может обращаться
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
+      ports:
+        - protocol: TCP
+          port: 5432  # Разрешаем доступ только к PostgreSQL
+  egress: []  # `database` НИКУДА НЕ МОЖЕТ СТУЧАТЬСЯ (даже в `cache`)

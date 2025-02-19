@@ -1,0 +1,7 @@
+# postgresql/Chart.yaml.yaml
+apiVersion: v2
+name: postgresql-web-panel
+description: Helm-чарт для развертывания postgresql для web-panel
+type: application
+version: 0.1.0
+appVersion: "14"

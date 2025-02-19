@@ -1,0 +1,49 @@
+# k3s/namespaces.yaml
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: database
+      labels:
+        kubernetes.io/metadata.name: database
+        pod-security.kubernetes.io/enforce: restricted
+        pod-security.kubernetes.io/warn: restricted
+        pod-security.kubernetes.io/audit: restricted
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: cache
+      labels:
+        kubernetes.io/metadata.name: cache
+        pod-security.kubernetes.io/enforce: restricted
+        pod-security.kubernetes.io/warn: restricted
+        pod-security.kubernetes.io/audit: restricted
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: app
+      labels:
+        kubernetes.io/metadata.name: app
+        pod-security.kubernetes.io/enforce: restricted
+        pod-security.kubernetes.io/warn: restricted
+        pod-security.kubernetes.io/audit: restricted
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: ingress-nginx
+      labels:
+        kubernetes.io/metadata.name: ingress-nginx
+        pod-security.kubernetes.io/enforce: restricted
+        pod-security.kubernetes.io/warn: restricted
+        pod-security.kubernetes.io/audit: restricted
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: monitoring
+      labels:
+        kubernetes.io/metadata.name: monitoring
+        pod-security.kubernetes.io/enforce: baseline
+        pod-security.kubernetes.io/warn: baseline
+        pod-security.kubernetes.io/audit: baseline

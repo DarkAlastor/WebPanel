@@ -1,0 +1,34 @@
+# postgresql/templates/service.yaml
+# 🔹 Service для Primary (запись)
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-web-panel-primary
+  namespace: database
+spec:
+  type: ClusterIP
+  selector:
+    app: postgresql-web-panel
+    role: primary
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+
+---
+
+# 🔹 Service для Read Replicas (чтение)
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-web-panel-read
+  namespace: database
+spec:
+  type: ClusterIP
+  selector:
+    app: postgresql-web-panel
+    role: replica
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

@@ -1,0 +1,19 @@
+# postgresql/values.yaml
+postgresql:
+  database: "web_panel_panel_db" # имя БД по умолчанию
+  username: "user"
+  password: "password"
+  storageSize: "1Gi" #  размер хранилища для базы данных (Persistent Volume)
+  image: "postgres:alpine" # образ который будет использоваться
+  servicePort: 5432 # порт, на котором сервис PostgreSQL будет доступен
+  storageClass: "standard" # класс хранилища, который будет использоваться.
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 90
+
+rbac:
+  create: true
+  serviceAccountName: postgres-sa

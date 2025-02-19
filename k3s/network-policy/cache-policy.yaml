@@ -1,0 +1,20 @@
+# k3s/network-policy/cache-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cache-policy
+  namespace: cache
+spec:
+  podSelector: {}  # Применяется ко всем Pod-ам в `cache`
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: app  # Только `app` может обращаться
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
+      ports:
+        - protocol: TCP
+          port: 6379  # Разрешаем доступ только к Redis
+  egress: []  # `cache` НЕ МОЖЕТ ХОДИТЬ В `database`, `app`, `ingress`

@@ -1,0 +1,16 @@
+# app/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-web-panel
+  namespace: app
+  labels:
+    app: flask-web-panel
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.flaskApp.servicePort }}
+      targetPort: {{ .Values.flaskApp.servicePort }}
+      protocol: TCP
+  selector:
+    app: flask-web-panel

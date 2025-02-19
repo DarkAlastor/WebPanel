@@ -1,0 +1,51 @@
+# redis/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-web-panel-master
+  namespace: cache
+spec:
+  selector:
+    matchLabels:
+      app: redis-web-panel
+      role: master
+  template:
+    metadata:
+      labels:
+        app: redis-web-panel
+        role: master
+    spec:
+      containers:
+        - name: redis
+          image: {{ .Values.redis.image }}
+          ports:
+            - containerPort: {{ .Values.redis.servicePort }}
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-web-panel-secret
+                  key: password
+          volumeMounts:
+            - mountPath: /data
+              name: redis-storage
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+      volumes:
+        - name: redis-storage
+          emptyDir: {}  # Используем временное хранилище
+
