@@ -1,7 +1,11 @@
 from dependency_injector import containers, providers
 
+# Импорт основных контейнеров для различных слоев приложения
+from src.app.core.di.di_controller import ControllerContainer
 from src.app.core.di.di_core import CoreContainer
 from src.app.core.di.di_database import DbContainer
+from src.app.core.di.di_repository import RepositoryContainer
+from src.app.core.di.di_view import ViewContainer
 
 
 class AppContainer(containers.DynamicContainer):
@@ -14,14 +18,21 @@ class AppContainer(containers.DynamicContainer):
 
     Основные атрибуты:
     - core: Контейнер зависимостей для основной логики приложения (CoreContainer).
-    - db: Контейнер для базы данных, используемых в приложении.
+    - repo: Контейнер для репозиториев, используемых в приложении.
+    - controller: Контейнер для контроллеров.
+    - view: Контейнер для представлений (views).
     """
 
     # Провайдер для инициализации контейнера CoreContainer (основной контейнер зависимостей)
     core = providers.Container(CoreContainer)
-
     # Провайдер для иницализции контенера DbContainer (базы данных)
     db = providers.Container(DbContainer)
+    # Провайдер для инициализации контейнера RepositoryContainer (репозитории)
+    repo = providers.Container(RepositoryContainer, db=db)
+    # Провайдер для инициализации контейнера ControllerContainer (контроллеры)
+    controller = providers.Container(ControllerContainer, repo=repo)
+    # Провайдер для инициализации контейнера ViewContainer (представления)
+    view = providers.Container(ViewContainer, controller=controller)
 
     def init_resources(self) -> None:
         """
@@ -33,3 +44,5 @@ class AppContainer(containers.DynamicContainer):
         """
         # Инициализация ресурсов основного контейнера
         self.core.init_resources()
+        # Инициализация ресурсов представлений (views)
+        self.view.init_resources()
