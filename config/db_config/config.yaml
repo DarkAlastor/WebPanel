@@ -1,0 +1,31 @@
+default_permissions:
+  - name: read
+    description: "Permission to read resources"
+  - name: write
+    description: "Permission to create or update resources"
+  - name: delete
+    description: "Permission to delete resources"
+  - name: update
+    description: "Permission to update resources"
+
+default_role_name:
+  - role_name: Root
+    description: "Root role"
+    permissions:
+      - read
+      - write
+      - delete
+  - role_name: Admin
+    description: "Admin role"
+    permissions:
+      - read
+      - write
+      - update
+
+default_users:
+  - login: root
+    password: root
+    role_name: Root
+  - login: admin
+    password: admin
+    role_name: Admin
