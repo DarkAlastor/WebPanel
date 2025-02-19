@@ -1,0 +1,117 @@
+version: "3.8"
+
+services:
+
+  flask_app:
+    build:
+      context: .  # Указываем путь к папке с Dockerfile
+      dockerfile: Dockerfile
+      target: dev # Сборка только dev-окружения
+    container_name: web-panel
+    environment: # Переменные окружения указываются прямо здесь
+      PROJECT_ROOT: /app
+      ALLURE_HOST: "http://localhost:5051"
+      PROJECT_ID: "web-panel"
+      SEND_PATH: "/allure-docker-service/send-results"
+      GENERATE_PATH: "/allure-docker-service/generate-report"
+      FLASK_APP: src/app/run.py
+      FLASK_STATUS_DEBUG: "true"
+      FLASK_STATUS_TESTING: "true"
+      FLASK_STATUS_PROD_STAGES: "false"
+      FLASK_WTF_CSRF_ENABLED: "false"
+      FLASK_SECRET_KEY_SESSION: "default_secret_key_session"
+      FLASK_SECRET_KEY_FALLBACKS: "None"
+      FLASK_SQLALCHEMY_DATABASE_URI: "postgresql://web_panel_user:web_panel_password@postgres:5432/web_panel_db"
+      FLASK_SESSION_REDIS_URI: "redis://redis_cache:6379/0"
+      FLASK_CONFIG_PATH: config/app_config.toml
+    ports:
+      - "8000:8000"  # Пробрасываем порт для доступа к приложению
+      - "5000:5000"
+    networks:
+      - dev_networks_web
+    depends_on:
+      - redis
+      - postgres
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: web_panel_user
+      POSTGRES_PASSWORD: web_panel_password
+      POSTGRES_DB: web_panel_ssl_db
+    ports:
+      - "5432:5432"
+    networks:
+      - dev_networks_web
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - dev_networks_web
+    depends_on:
+      - postgres
+
+  loki:
+    image: grafana/loki:2.8.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki_data:/loki/data
+      - ./config/loki-config.yaml:/etc/loki/config.yaml
+    networks:
+      - dev_networks_web
+    depends_on:
+      - postgres
+
+  promtail:
+    image: grafana/promtail:2.8.0
+    container_name: promtail
+    volumes:
+      - /var/log:/var/log
+      - ./config/promtail-config.yaml:/etc/promtail/promtail.yaml
+    networks:
+      - dev_networks_web
+    depends_on:
+      - loki
+      - postgres
+
+  grafana:
+    image: grafana/grafana:9.3.0
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    environment:
+      GF_SECURITY_ADMIN_USR: 'admin'
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+    networks:
+      - dev_networks_web
+    depends_on:
+      - loki
+      - postgres
+
+  allure:
+    image: frankescobar/allure-docker-service
+    container_name: allure
+    ports:
+      - "5051:5050" # Порт для просмотра отчетов Allure
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 2 # Частота проверки результатов
+      KEEP_HISTORY: "1" # Хранить историю отчетов
+    networks:
+      - dev_networks_web
+    depends_on:
+      - loki
+      - postgres
+
+volumes:
+  loki_data:
+    driver: local
+
+networks:
+  dev_networks_web:
+    driver: bridge
