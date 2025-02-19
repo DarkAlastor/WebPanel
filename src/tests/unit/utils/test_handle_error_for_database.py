@@ -4,8 +4,6 @@ import allure
 import pytest
 from sqlalchemy.exc import SQLAlchemyError
 
-# Фикстуры dummy_success, dummy_sqlalchemy_error и dummy_generic_error будут автоматически найдены
-
 
 @allure.parent_suite("Unit Tests")
 @allure.suite("Тестирование декоратора handle_error_for_database")

@@ -20,7 +20,6 @@ def core_container(dummy_config_fixture):
     """
     Создает экземпляр CoreContainer и переопределяет провайдер config dummy-конфигурацией.
     """
-    # from src.app.core.di.di_core import CoreContainer
     container = CoreContainer()
     container.config.override(dummy_config_fixture)
     return container
