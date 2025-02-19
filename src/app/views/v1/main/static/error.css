@@ -1,0 +1,20 @@
+.error-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.error-code {
+    font-size: 72px;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #6c757d;
+}

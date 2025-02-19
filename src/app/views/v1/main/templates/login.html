@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('v1.main.static', filename='login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <h1>Login in</h1>
+    <form action="{{ url_for('v1.main.login_post') }}" method="POST" class="login-form">
+        {{ form.hidden_tag() }} <!-- Для CSRF-защиты -->
+
+        {% for field in form %}
+            {% if field.name != 'csrf_token' and field.type != 'SubmitField' %}
+                <div class="form-login-group">
+                    {{ field.label }}
+                    {{ field(class_="input-field") }}
+                    <!-- Вывод ошибок для поля -->
+                    {% for error in field.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Вывод общей ошибки, если она существует -->
+        {% if form.login.errors %}
+            <div class="form-errors">
+                <p class="text-danger">{{ form.login.errors[0] }}</p>
+            </div>
+        {% endif %}
+
+        <!-- Применяем CSS стиль только к кнопке "Sign In" -->
+        <div class="form-login-group">
+            {{ form.submit(class_="btn-submit") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

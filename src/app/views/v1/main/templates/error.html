@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Ошибка {{ error }}{% endblock %}
+
+{% block meta_description %}Произошла ошибка: {{ message }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('v1.main.static', filename='error.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="error-container text-center">
+    <h1 class="error-code">{{ error }}</h1>
+    <p class="error-message">{{ message }}</p>
+</div>
+{% endblock %}
