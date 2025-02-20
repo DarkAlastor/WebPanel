@@ -83,3 +83,8 @@ db-migrate-empty:
 .PHONY: db-upgrade
 db-upgrade:
 	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db upgrade
+
+# ________________БЛОК КОМАНД ДЛЯ СБОРКИ КОНТЕНЕРОВ________________
+.PHONY: build-dev
+build-dev:
+	$(RUN) docker build --target dev -t flask-web-panel:dev .
