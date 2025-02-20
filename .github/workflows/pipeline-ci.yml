@@ -7,3 +7,48 @@ on:
   pull_request:
     branches:
       - main  # Запуск на pull request в ветку main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Run formatters
+        run: make formater
+
+      - name: Run linters
+        run: make lint
+
+      - name: Run type checks
+        run: make typecheck
+
+      - name: Run tests
+        run: make test-all
+
+      - name: Generate documentation
+        if: github.ref == 'refs/heads/main'
+        run: |
+          make apidoc
+          make docs
+
+      - name: Deploy documentation to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_build/html
