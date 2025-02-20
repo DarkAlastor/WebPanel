@@ -1,0 +1,27 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    name: Deploy Documentation
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Upload pre-built documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-docs
+          path: docs/_build/html/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.MY_GITHUB_TOKEN_PAGES }}
+          publish_dir: docs/_build/html
+
