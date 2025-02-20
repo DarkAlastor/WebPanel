@@ -3,7 +3,8 @@ name: CD Pipeline
 on:
   push:
     branches:
-      - dev
+      - main
+
 
 jobs:
   docs:
@@ -18,6 +19,7 @@ jobs:
         with:
           name: html-docs
           path: docs/_build/html/
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
