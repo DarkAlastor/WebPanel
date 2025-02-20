@@ -8,8 +8,8 @@ from sqlalchemy.exc import SQLAlchemyError
 @allure.parent_suite("Unit Tests")
 @allure.suite("Тестирование декоратора handle_error_for_database")
 @allure.sub_suite("Обработка ошибок базы данных")
-@allure.title("Проверка работы декоратора handle_error_for_database")
 class TestHandleErrorForDatabase:
+
     @allure.title("Успешное выполнение функции")
     @allure.description(
         "Проверяет, что функция, обёрнутая handle_error_for_database, "

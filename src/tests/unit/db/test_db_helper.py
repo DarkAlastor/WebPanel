@@ -5,6 +5,7 @@ import allure
 @allure.suite("Тестирование DBHelperSQL")
 @allure.sub_suite("Тестирование SELECT-запросов")
 class TestDBHelperSQLSelectQueries:
+
     @allure.title("Тест получения всех пользователей через DBHelperSQL")
     def test_execute_query_get_all_users(self, db_helper):
         with allure.step("Выполняем SELECT-запрос для получения всех пользователей"):

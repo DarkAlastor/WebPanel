@@ -9,6 +9,7 @@ from src.app.db.query_manager import QueryManager
 @allure.parent_suite("Database Tests")
 @allure.suite("Тестирование QueryManager")
 class TestQueryManager:
+
     @allure.sub_suite("Инициализация QueryManager")
     @allure.title("Тест инициализации QueryManager с существующим файлом запросов")
     @allure.description("Проверка корректной загрузки запросов из YAML-файла при инициализации QueryManager")

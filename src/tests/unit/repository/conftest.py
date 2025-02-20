@@ -3,18 +3,23 @@ from unittest.mock import Mock
 
 from pytest import fixture
 
-from src.app.controllers.main_controller import MainController
 from src.app.db.db_helper import DBHelperSQL
 from src.app.repository.interface.isession_repo import ISessionManager
-from src.app.repository.interface.iuser_repo import IUserRepository
+from src.app.repository.repo_session import RepositoryFlaskSessionManager
 from src.app.repository.repo_user import UserRepository
 
 
-# ===== Фикстуры для контроллеров =====
+# ======== Фикстуры для session_repository ========
 @fixture
-def mock_user_repository() -> IUserRepository:
-    """Создает мок для IUserRepository."""
-    return cast(IUserRepository, Mock(spec=IUserRepository))
+def repo_session_manager(mock_session_manager: ISessionManager) -> RepositoryFlaskSessionManager:
+    """
+    Создает экземпляр RepositoryFlaskSessionManager с использованием mock_session_manager.
+    Предполагается, что RepositoryFlaskSessionManager принимает менеджер сессии через конструктор.
+    """
+    return RepositoryFlaskSessionManager()
+
+
+# ======== Фикстуры для user_repository ========
 
 
 @fixture
@@ -23,7 +28,6 @@ def mock_session_manager() -> ISessionManager:
     return cast(ISessionManager, Mock(spec=ISessionManager))
 
 
-# ===== Фикстуры для репозиториев =====
 @fixture
 def db_helper_mock() -> Mock:
     """
@@ -32,17 +36,6 @@ def db_helper_mock() -> Mock:
     :return: Мок-объект DBHelperSQL.
     """
     return Mock(spec=DBHelperSQL)
-
-
-@fixture
-def user_repository(db_helper_mock: Mock) -> UserRepository:
-    """
-    Создаёт экземпляр UserRepository с моком DBHelperSQL.
-
-    :param db_helper_mock: Мок для DBHelperSQL.
-    :return: Экземпляр UserRepository.
-    """
-    return UserRepository(db_helper=db_helper_mock)
 
 
 @fixture
@@ -58,6 +51,11 @@ def fake_session(monkeypatch):
 
 
 @fixture
-def main_controller(mock_user_repository: IUserRepository, mock_session_manager: ISessionManager) -> MainController:
-    """Создает экземпляр MainController с моками."""
-    return MainController(user_repository=mock_user_repository, session_manager=mock_session_manager)
+def repo_user_repository(db_helper_mock: Mock) -> UserRepository:
+    """
+    Создаёт экземпляр UserRepository с моком DBHelperSQL.
+
+    :param db_helper_mock: Мок для DBHelperSQL.
+    :return: Экземпляр UserRepository.
+    """
+    return UserRepository(db_helper=db_helper_mock)

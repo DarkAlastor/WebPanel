@@ -8,13 +8,13 @@ from src.app.core.config import AppConfig, FlaskConfig, LoggerConfig
 @allure.parent_suite("Unit Tests")
 @allure.suite("Тестирование AppConfig")
 @allure.sub_suite("Инициализация конфигурации приложения")
-@allure.title("Тест успешной инициализации AppConfig")
-@allure.description(
-    "Проверяет, что AppConfig корректно собирает конфигурацию из FlaskConfig и LoggerConfig, "
-    "используя методы from_toml() и from_yaml()."
-)
 class TestAppConfig:
 
+    @allure.title("Тест успешной инициализации AppConfig")
+    @allure.description(
+        "Проверяет, что AppConfig корректно собирает конфигурацию из FlaskConfig и LoggerConfig, "
+        "используя методы from_toml() и from_yaml()."
+    )
     def test_app_config_initialization(self, dummy_flask_config, dummy_logger_config):
         """
         Мокаем методы FlaskConfig.from_toml() и LoggerConfig.from_yaml(),

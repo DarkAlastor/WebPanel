@@ -9,11 +9,8 @@ from flask import Flask
 @allure.parent_suite("Unit Tests")
 @allure.suite("Тестирование декоратора log_routes")
 @allure.sub_suite("Логирование и сохранение метаданных")
-@allure.title("Проверка декоратора log_routes")
-@allure.description(
-    "Проверяет, что декоратор log_routes логирует маршруты, сохраняет метаданные и возвращает экземпляр Flask."
-)
 class TestLogRoutes:
+
     @allure.title("Логирование маршрутов")
     @allure.description("Проверка, что декоратор логирует все маршруты приложения.")
     def test_log_routes_logging(self, caplog, decorated_app, sample_app):

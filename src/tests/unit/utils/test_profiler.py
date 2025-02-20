@@ -8,6 +8,7 @@ import allure
 @allure.suite("Тестирование профилирования SQL-запросов")
 @allure.sub_suite("Логирование SQL-запросов")
 class TestSqlQueryLogging:
+
     @allure.title("Тест логирования быстрого SQL-запроса")
     @allure.description("Проверяет, что быстрый SQL-запрос (<1 сек) логируется на уровне INFO")
     def test_fast_query_logging(self, mock_logger, fast_query):

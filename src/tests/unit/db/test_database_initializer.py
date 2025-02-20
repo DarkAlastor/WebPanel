@@ -7,6 +7,7 @@ from src.app.db.models import PermissionModel, RoleModel, UserModel
 @allure.suite("Тестирование DatabaseInitializer")
 @allure.sub_suite("Добавление данных в базу")
 class TestDatabaseInitializer:
+
     @allure.title("Тест добавления прав доступа")
     @allure.description("Проверка, что права доступа корректно добавлены в базу данных.")
     def test_add_default_permissions(self, initializer_with_config, test_session):
