@@ -26,6 +26,7 @@ jobs:
         with:
           path: ~/.cache/pypoetry
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: ${{ runner.os }}-poetry-
 
       - name: Install Poetry
         run: |
@@ -64,6 +65,7 @@ jobs:
         with:
           path: ~/.cache/pypoetry
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: ${{ runner.os }}-poetry-
 
       - name: Install Poetry
         run: |
@@ -82,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate and Deploy Documentation
     needs: tests
-    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -114,7 +116,7 @@ jobs:
           make docs
 
       - name: Upload documentation artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: documentation
           path: docs/_build/html
