@@ -1,3 +1,4 @@
+fail_fast: true
 repos:
   - repo: local
     hooks:
@@ -22,7 +23,7 @@ repos:
         language: system
         types: [python]
 
-      # Запуск тестов (новый хук)
+      # Запуск тестов
       - id: run-tests
         name: Run Tests
         entry: make test-all
