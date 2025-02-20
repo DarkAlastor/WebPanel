@@ -51,9 +51,21 @@ start-docs:
 test-all:
 	$(RUN) pytest -v --tb=long --capture=no src/tests/
 
-.PHONY: test-unit
-test-unit:
+.PHONY: unit-tests
+unit-tests:
 	$(RUN) pytest -v --tb=long --capture=no src/tests/unit/
+
+.PHONY: e2e-tests
+e2e-tests:
+	$(RUN) pytest -v --tb=long --capture=no src/tests/e2e/
+
+.PHONY: integ-tests
+integ-tests:
+	$(RUN) pytest -v --tb=long --capture=no src/tests/integ/
+
+.PHONY: blueprints-tests
+blueprints-tests:
+	$(RUN) pytest -v --tb=long --capture=no src/tests/blueprint/
 
 # ________________БЛОК КОМАНД ДЛЯ МИГРАЦИЙ________________
 .PHONY: db-init
