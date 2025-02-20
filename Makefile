@@ -31,6 +31,10 @@ typecheck:
 		--follow-imports=skip \
 		--explicit-package-bases \
 		--disable-error-code=misc
+# Проверка на безопасность
+.PHONY: security
+security:
+	$(PYTHON) -m bandit -r src/ --exclude tests/,migrations/
 
 # ________________БЛОК КОМАНД ДЛЯ ГЕНЕРАЦИИ ДОКУМЕНТАЦИИ________________
 .PHONY: apidoc
@@ -67,6 +71,11 @@ integ-tests:
 blueprints-tests:
 	$(RUN) pytest -v --tb=long --capture=no src/tests/blueprint/
 
+.PHONY: coverage
+coverage:
+	$(RUN) coverage run -m pytest src/tests/
+	$(RUN) coverage report -m
+
 # ________________БЛОК КОМАНД ДЛЯ МИГРАЦИЙ________________
 .PHONY: db-init
 db-init:
@@ -75,10 +84,6 @@ db-init:
 .PHONY: db-migrate
 db-migrate:
 	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db migrate -m "Auto migration"
-
-.PHONY: db-migrate-empty
-db-migrate-empty:
-	FLASK_APP=$(FLASK_MIGRATE) poetry run flask db revision -m "Initial empty migration"
 
 .PHONY: db-upgrade
 db-upgrade:
