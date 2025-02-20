@@ -7,10 +7,11 @@ on:
   pull_request:
     branches:
       - main  # Запуск на pull request в ветку main
-
 jobs:
-  build:
+
+  lint:
     runs-on: ubuntu-latest
+    name: Linting and Type Checking
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -20,10 +21,18 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Cache Poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+
       - name: Install Poetry
         run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          if ! command -v poetry > /dev/null; then
+            curl -sSL https://install.python-poetry.org | python3 -
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
 
       - name: Install dependencies
         run: make install
@@ -37,17 +46,80 @@ jobs:
       - name: Run type checks
         run: make typecheck
 
+  tests:
+    runs-on: ubuntu-latest
+    name: Run Tests
+    needs: lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Cache Poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install Poetry
+        run: |
+          if ! command -v poetry > /dev/null; then
+            curl -sSL https://install.python-poetry.org | python3 -
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
+
+      - name: Install dependencies
+        run: make install
+
       - name: Run tests
         run: make test-all
 
+  docs:
+    runs-on: ubuntu-latest
+    name: Generate and Deploy Documentation
+    needs: tests
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Cache Poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install Poetry
+        run: |
+          if ! command -v poetry > /dev/null; then
+            curl -sSL https://install.python-poetry.org | python3 -
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
+
+      - name: Install dependencies
+        run: make install
+
       - name: Generate documentation
-        if: github.ref == 'refs/heads/main'
         run: |
           make apidoc
           make docs
 
+      - name: Upload documentation artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: documentation
+          path: docs/_build/html
+
       - name: Deploy documentation to GitHub Pages
-        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
