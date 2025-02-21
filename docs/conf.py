@@ -14,8 +14,8 @@ extensions = [
 exclude_patterns = ["tests", "static", "templates"]
 
 # Общие настройки проекта
-project = "FlasktemplateTestGitlab"  # Укажите название вашего проекта
-author = "Your Name"  # Укажите автора документации
+project = "FlaskWebPanel"  # Укажите название вашего проекта
+author = "Mr Alastor"  # Укажите автора документации
 version = "0.1.0"  # Укажите версию проекта
 release = "0.1.0"  # Укажите релиз проекта (может быть таким же, как версия)
 
