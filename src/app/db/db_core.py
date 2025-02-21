@@ -185,7 +185,7 @@ class DatabaseCore:
         self.Session = None
         self.instance_initializer: Optional[DatabaseInitializer] = None
         if app is not None:
-            self.init_app(app)
+            self.init_db(app)
 
     @property
     def metadata(self) -> MetaData:
@@ -252,7 +252,7 @@ class DatabaseCore:
         self.Session = sessionmaker(bind=self.engine)
 
     @handle_error_for_database
-    def init_app(self, app: Flask) -> None:
+    def init_db(self, app: Flask) -> None:
         """
         Инициализация базы данных с Flask приложением.
 

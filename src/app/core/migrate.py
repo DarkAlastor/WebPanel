@@ -33,7 +33,7 @@ def create_migrate_app(
 
     # Настраиваем базу
     db_core: DatabaseCore = container.db.db_core()
-    db_core.init_app(app=app)
+    db_core.init_db(app=app)
     app.extensions["db_core"] = db_core
 
     # Инициализируем миграции

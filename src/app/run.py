@@ -52,7 +52,7 @@ def create_app(
 
     # Инициализация DatabaseCore
     logger.info("=== Инициализация базы данных ===")
-    db_core.init_app(app=app)
+    db_core.init_db(app=app)
     app.extensions["db_core"] = db_core
 
     # Создание таблиц при первом запуске

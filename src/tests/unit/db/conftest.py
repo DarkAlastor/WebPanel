@@ -142,7 +142,7 @@ def db_core(mock_app):
     db_core_instance = DatabaseCore()
 
     # Вызываем init_app для инициализации
-    db_core_instance.init_app(mock_app)
+    db_core_instance.init_db(mock_app)
 
     # Создаём таблицы
     db_core_instance.create_tables()
@@ -160,7 +160,7 @@ def db_helper_with_real_queries(mock_app):
     """
     # Инициализация DatabaseCore
     db_core = DatabaseCore()
-    db_core.init_app(mock_app)
+    db_core.init_db(mock_app)
     db_core.create_tables()
 
     # Инициализация данных через DatabaseInitializer

@@ -13,7 +13,7 @@ class TestDatabaseCore:
     def test_database_core_initialization(self, mock_app):
         with allure.step("Инициализируем DatabaseCore"):
             db_core = DatabaseCore()
-            db_core.init_app(mock_app)
+            db_core.init_db(mock_app)
 
         with allure.step("Проверяем, что движок и сессия созданы"):
             assert db_core.engine is not None, "Движок базы данных не создан"
@@ -24,7 +24,7 @@ class TestDatabaseCore:
     def test_create_tables_with_initializer(self, mock_app):
         with allure.step("Инициализируем DatabaseCore и создаем таблицы"):
             db_core = DatabaseCore()
-            db_core.init_app(mock_app)
+            db_core.init_db(mock_app)
             db_core.create_tables()
 
         with allure.step("Проверяем, что данные добавлены в базу"):
