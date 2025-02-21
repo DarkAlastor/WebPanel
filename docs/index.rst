@@ -1,7 +1,7 @@
-.. FlaskWebPanelSSL documentation master file, created by
+.. FlaskWebPanel documentation master file, created by
    sphinx-apidoc on <date>.
 
-Welcome to FlaskWebPanelSSL documentation!
+Welcome to FlaskWebPanel documentation!
 ========================================
 
 ..  Комментарий: Следующий раздел содержит ссылки на модули.
