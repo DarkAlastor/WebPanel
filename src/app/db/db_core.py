@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional, Type
 
 import yaml
 from flask import Flask
-from sqlalchemy import MetaData, create_engine
+from sqlalchemy import MetaData, create_engine, func, inspect, select
 from sqlalchemy.orm import Session, sessionmaker
 from werkzeug.security import generate_password_hash
 
@@ -276,17 +276,73 @@ class DatabaseCore:
         self.__init_session()
 
     @handle_error_for_database
+    def __create_tabel_with_models(self) -> None:
+        """
+        Создает таблицы в базе данных и заполняет начальными данными.
+        через модели
+        """
+        self.metadata.create_all(self.engine)
+        with self.session_scope() as session:
+            if self.instance_initializer:
+                self.instance_initializer.initialize_db(session=session)
+                logger.info("Таблицы успешно созданы")
+                return None
+
+    @handle_error_for_database
+    def __check_empty_tabel(self, model: type[AbstractModel] = UserModel) -> bool:
+        """
+        Проверяет, пустая ли указанная таблица.
+
+        :param model: Модель базы данных для проверки.
+        :return: True, если таблица пуста; False, если в таблице есть записи.
+        """
+        with self.session_scope() as session:
+            count_query = select(func.count()).select_from(model)  # Используем объект модели
+            result = session.execute(count_query)
+            count = result.scalar()  # Получаем единственное значение
+            if count > 0:
+                logger.info(f"В таблице '{model.__tablename__}' уже есть {result} записей.")
+                return False
+            logger.info(f"В таблице '{model.__tablename__}' нет записей.")
+            return True
+
+    @handle_error_for_database
+    def __write_data_in_tabels(self) -> None:
+        """
+        Создает таблицы в базе данных и заполняет начальными данными.
+        """
+        with self.session_scope() as session:
+            if self.instance_initializer:
+                self.instance_initializer.initialize_db(session=session)
+                return None
+
+    @handle_error_for_database
     def create_tables(self) -> None:
         """
         Создает таблицы в базе данных и заполняет начальными данными.
         """
-        logger.info("Создание таблиц в базе данных")
+        logger.info("Проверка существования таблиц")
         if self.engine:
-            self.metadata.create_all(self.engine)
-            with self.session_scope() as session:
-                if self.instance_initializer:
-                    self.instance_initializer.initialize_db(session=session)
-            logger.info("Таблицы успешно созданы")
+            inspector = inspect(self.engine)
+
+            # Получаем список всех таблиц в базе данных
+            existing_tables = inspector.get_table_names()
+
+            # Если нет, таблиц инициализируем бд через модели
+            if not existing_tables:
+                logger.info("Таблиц нет")
+                logger.info("Создаем таблицу в базе данных")
+                self.metadata.create_all(self.engine)
+                self.__write_data_in_tabels()
+                logger.info("Таблицы успешно созданы")
+                return None
+
+            # Если есть таблица 'users', но нет записей
+            if self.__check_empty_tabel():
+                logger.info("Таблиц есть заполняем")
+                self.__write_data_in_tabels()
+                logger.info("Таблицы успешно заполнены")
+                return None
 
     @handle_error_for_database
     def drop_tables(self) -> None:
