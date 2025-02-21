@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app package &mdash; документация FlaskWebPanel 0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ff560e8"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=5b699b7f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="app.controllers package" href="app.controllers.html" />
+    <link rel="prev" title="Welcome to FlaskWebPanel documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FlaskWebPanel
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.controllers.html">app.controllers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html">app.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html">app.db package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.repository.html">app.repository package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.schemas.html">app.schemas package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html">app.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.views.html">app.views package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-run-module">app.run module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.controllers.html">app.controllers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html">app.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html">app.db package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.html">app.repository package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html">app.schemas package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.utils.html">app.utils package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.views.html">app.views package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-run-module">app.run module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlaskWebPanel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="app-package">
+<h1>app package<a class="headerlink" href="#app-package" title="Ссылка на этот заголовок"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Ссылка на этот заголовок"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app.controllers.html">app.controllers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.controllers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.controllers.html#app-controllers-main-controller-module">app.controllers.main_controller module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.controllers.html#module-app.controllers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.core.html">app.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.core.di.html">app.core.di package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-app-module">app.core.di.di_app module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-controller-module">app.core.di.di_controller module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-core-module">app.core.di.di_core module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-database-module">app.core.di.di_database module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-repository-module">app.core.di.di_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#app-core-di-di-view-module">app.core.di.di_view module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.di.html#module-app.core.di">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#module-app.core.config">app.core.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html#app.core.config.AppConfig"><code class="docutils literal notranslate"><span class="pre">AppConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.AppConfig.flask_config"><code class="docutils literal notranslate"><span class="pre">AppConfig.flask_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.AppConfig.logging_config_app"><code class="docutils literal notranslate"><span class="pre">AppConfig.logging_config_app</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.AppConfig.model_config"><code class="docutils literal notranslate"><span class="pre">AppConfig.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig"><code class="docutils literal notranslate"><span class="pre">FlaskConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.API_TITLE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.API_TITLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.API_VERSION"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.API_VERSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.APPLICATION_ROOT"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.APPLICATION_ROOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.DEBUG"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.EXPLAIN_TEMPLATE_LOADING"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.EXPLAIN_TEMPLATE_LOADING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.JSON_SORT_KEYS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.JSON_SORT_KEYS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.MAX_CONTENT_LENGTH"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.MAX_CONTENT_LENGTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.MAX_COOKIE_SIZE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.MAX_COOKIE_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.MAX_FORM_MEMORY_SIZE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.MAX_FORM_MEMORY_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.MAX_FORM_PARTS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.MAX_FORM_PARTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.OPENAPI_SWAGGER_UI_PATH"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.OPENAPI_SWAGGER_UI_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.OPENAPI_SWAGGER_UI_URL"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.OPENAPI_SWAGGER_UI_URL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.OPENAPI_URL_PREFIX"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.OPENAPI_URL_PREFIX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.OPENAPI_VERSION"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.OPENAPI_VERSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.PERMANENT_SESSION_LIFETIME"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.PERMANENT_SESSION_LIFETIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.PREFERRED_URL_SCHEME"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.PREFERRED_URL_SCHEME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.PROPAGATE_EXCEPTIONS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.PROPAGATE_EXCEPTIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.PROVIDE_AUTOMATIC_OPTIONS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.PROVIDE_AUTOMATIC_OPTIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SECRET_KEY"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SECRET_KEY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SECRET_KEY_FALLBACKS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SECRET_KEY_FALLBACKS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SEND_FILE_MAX_AGE_DEFAULT"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SEND_FILE_MAX_AGE_DEFAULT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SERVER_NAME"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SERVER_NAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_CACHE_SIZE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_CACHE_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_DOMAIN"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_DOMAIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_HTTPONLY"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_HTTPONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_NAME"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_NAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_PARTITIONED"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_PARTITIONED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_PATH"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_SAMESITE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_SAMESITE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_COOKIE_SECURE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_COOKIE_SECURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_KEY_PREFIX"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_KEY_PREFIX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_PERMANENT"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_PERMANENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_POOL_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_POOL_TIMEOUT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_REDIS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_REDIS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_REFRESH_EACH_REQUEST"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_REFRESH_EACH_REQUEST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_TYPE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SESSION_USE_SIGNER"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SESSION_USE_SIGNER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_CONFIG_PATH_INIT"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_CONFIG_PATH_INIT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_CONFIG_PATH_QUERIES_POSTGRESQL"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_CONFIG_PATH_QUERIES_POSTGRESQL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_DATABASE_URI"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_DATABASE_URI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_ECHO"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_ECHO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_MAX_OVERFLOW"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_MAX_OVERFLOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_POOL_RECYCLE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_POOL_RECYCLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_POOL_SIZE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_POOL_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_RECORD_QUERIES"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_RECORD_QUERIES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.SQLALCHEMY_TRACK_MODIFICATIONS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.SQLALCHEMY_TRACK_MODIFICATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.STATIC_URL"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.STATIC_URL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.STATUS_PROD_STAGES"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.STATUS_PROD_STAGES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.TEMPLATES_AUTO_RELOAD"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.TEMPLATES_AUTO_RELOAD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.TESTING"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.TESTING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.TRAP_BAD_REQUEST_ERRORS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.TRAP_BAD_REQUEST_ERRORS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.TRAP_HTTP_EXCEPTIONS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.TRAP_HTTP_EXCEPTIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.TRUSTED_HOSTS"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.TRUSTED_HOSTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.USE_X_SENDFILE"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.USE_X_SENDFILE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.WTF_CSRF_ENABLED"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.WTF_CSRF_ENABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.from_toml"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.from_toml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.FlaskConfig.model_config"><code class="docutils literal notranslate"><span class="pre">FlaskConfig.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html#app.core.config.LoggerConfig"><code class="docutils literal notranslate"><span class="pre">LoggerConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.LoggerConfig.CONFIG_LOGGER"><code class="docutils literal notranslate"><span class="pre">LoggerConfig.CONFIG_LOGGER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.LoggerConfig.from_yaml"><code class="docutils literal notranslate"><span class="pre">LoggerConfig.from_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html#app.core.config.LoggerConfig.model_config"><code class="docutils literal notranslate"><span class="pre">LoggerConfig.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#module-app.core.context_processors">app.core.context_processors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html#app.core.context_processors.generate_routes"><code class="docutils literal notranslate"><span class="pre">generate_routes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html#app.core.context_processors.utility_routes"><code class="docutils literal notranslate"><span class="pre">utility_routes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#app-core-migrate-module">app.core.migrate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.core.html#module-app.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.db.html">app.db package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#app-db-db-core-module">app.db.db_core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#app-db-db-helper-module">app.db.db_helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#module-app.db.models">app.db.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel"><code class="docutils literal notranslate"><span class="pre">PermissionModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.created_at"><code class="docutils literal notranslate"><span class="pre">PermissionModel.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.description"><code class="docutils literal notranslate"><span class="pre">PermissionModel.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.id"><code class="docutils literal notranslate"><span class="pre">PermissionModel.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.name"><code class="docutils literal notranslate"><span class="pre">PermissionModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.role_permissions"><code class="docutils literal notranslate"><span class="pre">PermissionModel.role_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.roles"><code class="docutils literal notranslate"><span class="pre">PermissionModel.roles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.PermissionModel.update_at"><code class="docutils literal notranslate"><span class="pre">PermissionModel.update_at</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html#app.db.models.RoleModel"><code class="docutils literal notranslate"><span class="pre">RoleModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.created_at"><code class="docutils literal notranslate"><span class="pre">RoleModel.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.description"><code class="docutils literal notranslate"><span class="pre">RoleModel.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.id"><code class="docutils literal notranslate"><span class="pre">RoleModel.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.permissions"><code class="docutils literal notranslate"><span class="pre">RoleModel.permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.role_name"><code class="docutils literal notranslate"><span class="pre">RoleModel.role_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.role_permissions"><code class="docutils literal notranslate"><span class="pre">RoleModel.role_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.update_at"><code class="docutils literal notranslate"><span class="pre">RoleModel.update_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RoleModel.users"><code class="docutils literal notranslate"><span class="pre">RoleModel.users</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.granted_at"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.granted_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.id"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.permission"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.permission</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.permission_id"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.permission_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.role"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.role</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.RolePermissionModel.role_id"><code class="docutils literal notranslate"><span class="pre">RolePermissionModel.role_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html#app.db.models.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.created_at"><code class="docutils literal notranslate"><span class="pre">UserModel.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.id"><code class="docutils literal notranslate"><span class="pre">UserModel.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.login"><code class="docutils literal notranslate"><span class="pre">UserModel.login</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.password_hash"><code class="docutils literal notranslate"><span class="pre">UserModel.password_hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.role"><code class="docutils literal notranslate"><span class="pre">UserModel.role</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.role_id"><code class="docutils literal notranslate"><span class="pre">UserModel.role_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.models.UserModel.update_at"><code class="docutils literal notranslate"><span class="pre">UserModel.update_at</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#module-app.db.query_manager">app.db.query_manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html#app.db.query_manager.QueryManager"><code class="docutils literal notranslate"><span class="pre">QueryManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.query_manager.QueryManager.from_yaml"><code class="docutils literal notranslate"><span class="pre">QueryManager.from_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.query_manager.QueryManager.get_query"><code class="docutils literal notranslate"><span class="pre">QueryManager.get_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html#app.db.query_manager.QueryManager.list_queries"><code class="docutils literal notranslate"><span class="pre">QueryManager.list_queries()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.db.html#module-app.db">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.repository.html">app.repository package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.repository.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.repository.interface.html">app.repository.interface package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.interface.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.interface.html#module-app.repository.interface.isession_repo">app.repository.interface.isession_repo module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.interface.html#module-app.repository.interface.iuser_repo">app.repository.interface.iuser_repo module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.interface.html#module-app.repository.interface">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.repository.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.repository.html#app-repository-repo-session-module">app.repository.repo_session module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.repository.html#app-repository-repo-user-module">app.repository.repo_user module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.repository.html#module-app.repository">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.schemas.html">app.schemas package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.schemas.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.schemas.html#module-app.schemas.main_controller_schemas">app.schemas.main_controller_schemas module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.ip_addr"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.ip_addr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.login"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.login</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.model_config"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.password"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.validate_login"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.validate_login()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html#app.schemas.main_controller_schemas.AuthUserSchemas.validate_password"><code class="docutils literal notranslate"><span class="pre">AuthUserSchemas.validate_password()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.schemas.html#module-app.schemas">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.utils.html">app.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#module-app.utils.error_handlers">app.utils.error_handlers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html#app.utils.error_handlers.handle_db_helper_errors"><code class="docutils literal notranslate"><span class="pre">handle_db_helper_errors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html#app.utils.error_handlers.handle_error_for_database"><code class="docutils literal notranslate"><span class="pre">handle_error_for_database()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#module-app.utils.logger_decorators">app.utils.logger_decorators module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html#app.utils.logger_decorators.log_routes"><code class="docutils literal notranslate"><span class="pre">log_routes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#module-app.utils.mapper">app.utils.mapper module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html#app.utils.mapper.validate_schemas"><code class="docutils literal notranslate"><span class="pre">validate_schemas()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#module-app.utils.profiler">app.utils.profiler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.utils.html#app.utils.profiler.profile_sql_execution"><code class="docutils literal notranslate"><span class="pre">profile_sql_execution()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.utils.html#module-app.utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.views.html">app.views package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.views.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.views.v1.html">app.views.v1 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app.views.v1.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.views.v1.html#module-app.views.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.views.html#module-app.views">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Ссылка на этот заголовок"></a></h2>
+</section>
+<section id="app-run-module">
+<h2>app.run module<a class="headerlink" href="#app-run-module" title="Ссылка на этот заголовок"></a></h2>
+</section>
+<section id="module-app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app" title="Ссылка на этот заголовок"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to FlaskWebPanel documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="app.controllers.html" class="btn btn-neutral float-right" title="app.controllers package" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

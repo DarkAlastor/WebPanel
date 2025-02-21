@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app.utils package &mdash; документация FlaskWebPanel 0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ff560e8"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=5b699b7f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="app.views package" href="app.views.html" />
+    <link rel="prev" title="app.schemas package" href="app.schemas.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FlaskWebPanel
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="app.html">app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="app.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="app.controllers.html">app.controllers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.core.html">app.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.db.html">app.db package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.repository.html">app.repository package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.schemas.html">app.schemas package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">app.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-app.utils.error_handlers">app.utils.error_handlers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-app.utils.logger_decorators">app.utils.logger_decorators module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-app.utils.mapper">app.utils.mapper module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-app.utils.profiler">app.utils.profiler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-app.utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.views.html">app.views package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#app-run-module">app.run module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="app.html">app package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="app.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="app.controllers.html">app.controllers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.core.html">app.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.db.html">app.db package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.repository.html">app.repository package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.schemas.html">app.schemas package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">app.utils package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="app.views.html">app.views package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.html#app-run-module">app.run module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FlaskWebPanel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="app.html">app package</a></li>
+      <li class="breadcrumb-item active">app.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.utils.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="app-utils-package">
+<h1>app.utils package<a class="headerlink" href="#app-utils-package" title="Ссылка на этот заголовок"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Ссылка на этот заголовок"></a></h2>
+</section>
+<section id="module-app.utils.error_handlers">
+<span id="app-utils-error-handlers-module"></span><h2>app.utils.error_handlers module<a class="headerlink" href="#module-app.utils.error_handlers" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.utils.error_handlers.handle_db_helper_errors">
+<span class="sig-prename descclassname"><span class="pre">app.utils.error_handlers.</span></span><span class="sig-name descname"><span class="pre">handle_db_helper_errors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/app/utils/error_handlers.html#handle_db_helper_errors"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#app.utils.error_handlers.handle_db_helper_errors" title="Ссылка на это определение"></a></dt>
+<dd><p>Декоратор для обработки ошибок в <cite>DBHelperSQL</cite>.</p>
+<p>Этот декоратор предназначен для обработки ошибок, возникающих при выполнении SQL-запросов
+в <cite>DBHelperSQL</cite>. Он логирует ошибки и добавляет контекст запроса и параметры.</p>
+<p>Если ошибка происходит в методе обновления (<cite>execute_update</cite>), он возвращает <cite>False</cite>,
+в противном случае — пустой список <cite>[]</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – Функция, выполняющая SQL-запрос.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Обернутая функция с обработкой ошибок.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.utils.error_handlers.handle_error_for_database">
+<span class="sig-prename descclassname"><span class="pre">app.utils.error_handlers.</span></span><span class="sig-name descname"><span class="pre">handle_error_for_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/app/utils/error_handlers.html#handle_error_for_database"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#app.utils.error_handlers.handle_error_for_database" title="Ссылка на это определение"></a></dt>
+<dd><p>Декоратор для обработки ошибок, возникающих при работе с базой данных.</p>
+<p>Этот декоратор применяется к методам, выполняющим SQL-запросы через ORM или напрямую.
+Он перехватывает ошибки SQLAlchemy и другие исключения, логирует их и выбрасывает снова,
+позволяя системе корректно обрабатывать сбои в базе данных.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – Функция, выполняющая операцию с базой данных.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Обернутая функция, перехватывающая ошибки базы данных.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-app.utils.logger_decorators">
+<span id="app-utils-logger-decorators-module"></span><h2>app.utils.logger_decorators module<a class="headerlink" href="#module-app.utils.logger_decorators" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.utils.logger_decorators.log_routes">
+<span class="sig-prename descclassname"><span class="pre">app.utils.logger_decorators.</span></span><span class="sig-name descname"><span class="pre">log_routes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Flask</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Flask</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/app/utils/logger_decorators.html#log_routes"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#app.utils.logger_decorators.log_routes" title="Ссылка на это определение"></a></dt>
+<dd><p>Декоратор для логирования всех маршрутов в приложении Flask.</p>
+<p>Этот декоратор перебирает все маршруты, зарегистрированные в Flask-приложении,
+и выводит их в лог. Логируются путь и endpoint для каждого маршрута.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – Функция, которая возвращает экземпляр Flask-приложения.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Обёрнутая функция, которая логирует маршруты.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-app.utils.mapper">
+<span id="app-utils-mapper-module"></span><h2>app.utils.mapper module<a class="headerlink" href="#module-app.utils.mapper" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.utils.mapper.validate_schemas">
+<span class="sig-prename descclassname"><span class="pre">app.utils.mapper.</span></span><span class="sig-name descname"><span class="pre">validate_schemas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseModel</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/app/utils/mapper.html#validate_schemas"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#app.utils.mapper.validate_schemas" title="Ссылка на это определение"></a></dt>
+<dd><p>Декоратор для автоматической валидации входных данных с помощью Pydantic.</p>
+<p>Этот декоратор:
+- Принимает Pydantic-схему (<cite>schemas</cite>).
+- Преобразует входные данные (<cite>dict</cite>) в указанную Pydantic-модель.
+- Если валидация проходит успешно, передаёт валидированные данные в функцию.
+- Если валидация <strong>не проходит</strong>, возвращает <cite>False</cite>.</p>
+<p><strong>Использование:</strong>
+<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+&#64;validate_schemas(AuthUserSchemas)
+def auth_user(self, data: AuthUserSchemas) -&gt; bool | None:</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>schemas</strong> – Класс Pydantic, который будет использоваться для валидации данных.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Декорированная функция с автоматической валидацией входных данных.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-app.utils.profiler">
+<span id="app-utils-profiler-module"></span><h2>app.utils.profiler module<a class="headerlink" href="#module-app.utils.profiler" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.utils.profiler.profile_sql_execution">
+<span class="sig-prename descclassname"><span class="pre">app.utils.profiler.</span></span><span class="sig-name descname"><span class="pre">profile_sql_execution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/app/utils/profiler.html#profile_sql_execution"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#app.utils.profiler.profile_sql_execution" title="Ссылка на это определение"></a></dt>
+<dd><p>Декоратор для измерения времени выполнения SQL-запросов.</p>
+<p>Логирует время выполнения функции, переданной в качестве аргумента,
+что позволяет отслеживать производительность запросов к базе данных.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – Функция, выполняющая SQL-запрос.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Обернутая функция, измеряющая и логирующая время выполнения.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-app.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.utils" title="Ссылка на этот заголовок"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="app.schemas.html" class="btn btn-neutral float-left" title="app.schemas package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="app.views.html" class="btn btn-neutral float-right" title="app.views package" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
