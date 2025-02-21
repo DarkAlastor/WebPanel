@@ -55,8 +55,9 @@ def create_app(
     db_core.init_db(app=app)
     app.extensions["db_core"] = db_core
 
-    # Создание таблиц при первом запуске
+    # Создание или применение миграций
     with app.app_context():
+        # Проверка наличия таблиц и их создание, если необходимо
         db_core.create_tables()
 
     # Инициализация сессий
