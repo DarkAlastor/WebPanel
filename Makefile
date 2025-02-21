@@ -10,6 +10,9 @@ FLASK_MIGRATE = src.app.core.migrate.py
 install:
 	$(POETRY) install
 
+.PHONY: run
+run:
+	$(RUN) flask --app src.app.run run --host 127.0.0.1 --port 5000 --debug
 
 # ________________БЛОК КОМАНД ДЛЯ ЗАПУСКА ЛИНТЕРОВ________________
 .PHONY: formater
