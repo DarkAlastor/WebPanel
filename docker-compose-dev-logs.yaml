@@ -5,7 +5,7 @@ services:
   flask_app:
     build:
       context: .  # Указываем путь к папке с Dockerfile
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       target: dev # Сборка только dev-окружения
     container_name: web-panel
     environment: # Переменные окружения указываются прямо здесь
