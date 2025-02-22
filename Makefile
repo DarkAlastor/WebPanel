@@ -14,7 +14,7 @@ install:
 run:
 	$(RUN) flask --app src.app.run run --host 127.0.0.1 --port 5000
 
-.PHONY: run_none
+.PHONY: run_debug
 run_debug:
 	$(RUN) flask --app src.app.run run --host 127.0.0.1 --port 5000 --debug
 # ________________БЛОК КОМАНД ДЛЯ ЗАПУСКА ЛИНТЕРОВ________________
