@@ -23,40 +23,40 @@ handlers:
     level: INFO
     formatter: detailed
     filename: logs/app.log
-    maxBytes: 10485760
-    backupCount: 5
+    maxBytes: 10485760 # 10 MB
+    backupCount: 3
     encoding: utf8
   error_file:
     class: logging.handlers.RotatingFileHandler
     level: ERROR
     formatter: detailed
     filename: logs/error.log
-    maxBytes: 10485760
-    backupCount: 5
+    maxBytes: 10485760 # 10 MB
+    backupCount: 3
     encoding: utf8
   user_action_file:
     class: logging.handlers.RotatingFileHandler
     level: INFO
     formatter: user_action
     filename: logs/user_actions.log
-    maxBytes: 10485760
-    backupCount: 5
+    maxBytes: 10485760 # 10 MB
+    backupCount: 3
     encoding: utf8
   db_error_file:
     class: logging.handlers.RotatingFileHandler
     level: ERROR
     formatter: detailed
     filename: logs/db_error.log
-    maxBytes: 10485760
-    backupCount: 5
+    maxBytes: 10485760 # 10 MB
+    backupCount: 3
     encoding: utf8
   db_profiler:
     class: logging.handlers.RotatingFileHandler
     level: INFO
     formatter: detailed
     filename: logs/db_profiler.log
-    maxBytes: 10485760
-    backupCount: 5
+    maxBytes: 10485760 # 10 MB
+    backupCount: 3
     encoding: utf8
 
 
